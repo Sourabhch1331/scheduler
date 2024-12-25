@@ -1,0 +1,15 @@
+# Ignore all YAML files
+*.yaml
+*.yml
+
+# Ignore the vendor directory
+/vendor/
+
+# Go build artifacts
+*.exe
+*.out
+*.log
+
+# IDE-specific files
+.vscode/
+.idea/
