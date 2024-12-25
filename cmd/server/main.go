@@ -6,6 +6,7 @@ import (
 	"log"
 	"scheduler-server/internal"
 	"scheduler-server/internal/database"
+	"scheduler-server/internal/handler"
 )
 
 func main() {
@@ -23,6 +24,9 @@ func main() {
 
 	defer db.Close()
 	// handlers
+	ginHandler := handler.NewHandler(db)
+
+	r.GET("/health", ginHandler.Health)
 
 	port := internal.GetConfigString("server.port")
 	fmt.Println("[main] starting http server on port:", port)
